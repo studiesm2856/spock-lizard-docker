@@ -11,7 +11,7 @@ git --version'''
           }
         }
 
-        stage('error') {
+        stage('POM Verification') {
           steps {
             sh 'dir'
             fileExists 'pom.xml'
