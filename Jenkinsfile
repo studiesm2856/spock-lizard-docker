@@ -13,7 +13,7 @@ git --version'''
 
         stage('error') {
           steps {
-            sh 'git \'https://github.com/learn-devops-fast/spock-lizard-docker.git\''
+            sh 'dir'
             fileExists 'pom.xml'
           }
         }
