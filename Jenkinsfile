@@ -24,11 +24,9 @@ git --version'''
     stage('Build') {
       steps {
         timeout(time: 500) {
-          sh '''echo "Hello World"
-mvn install'''
+          sh 'mvn install'
         }
 
-        timestamps()
       }
     }
 
