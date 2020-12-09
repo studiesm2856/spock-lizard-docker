@@ -11,8 +11,9 @@ git --version'''
           }
         }
 
-        stage('') {
+        stage('error') {
           steps {
+            sh 'git \'https://github.com/learn-devops-fast/spock-lizard-docker.git\''
             fileExists 'pom.xml'
           }
         }
