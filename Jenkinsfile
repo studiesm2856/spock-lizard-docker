@@ -1,12 +1,18 @@
 pipeline {
   agent any
+  stage('build') {
+    steps {
+        withMaven(maven : 'mymaven'){
+        sh "mvn clean install"
+    }
+    }
+}
   stages {
     stage('Log Tool Version') {
       parallel {
         stage('Log Tool Version') {
           steps {
-           def mvnTool = tool name: 'Maven-3' , type: 'maven'
-           sh "${mvnTool}/bin/mvn clean install"
+ 
             sh '''mvn --version
 git --version
 java -version'''
