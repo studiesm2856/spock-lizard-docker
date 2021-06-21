@@ -4,9 +4,14 @@ pipeline {
     stage('Log Tool Version') {
       parallel {
         stage('Log Tool Version') {
+          stage('build') {
+       steps {
+        withMaven(maven : 'mymaven'){
+        sh "mvn clean install"
+    }
+    }
+          }
           steps {
-            mvnhome = tool name: 'mymaven', type: 'maven'
-            sh "${mvnhome}/bin/mvn clean install"
             sh '''mvn --version
 git --version
 java -version'''
