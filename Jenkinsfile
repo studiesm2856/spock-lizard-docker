@@ -3,20 +3,19 @@ pipeline {
    stages {
     stage('Log Tool Version') {
       parallel {
-        stage('Log Tool Version') {
-          stage('build') {
+         stage('build') {
        steps {
         withMaven(maven : 'mymaven'){
         sh "mvn clean install"
     }
     }
-          }
+          
           steps {
             sh '''mvn --version
 git --version
 java -version'''
           }
-        }
+         }     
 
         stage('Check for POM') {
           steps {
