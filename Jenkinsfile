@@ -5,8 +5,8 @@ pipeline {
       parallel {
         stage('Log Tool Version') {
           steps {
-            withMaven(maven : 'mymaven')
-            sh "mvn clean install"
+           def mvnTool = tool 'Maven_3_3_9'
+           sh "${mvnTool}/bin/mvn clean install"
             sh '''mvn --version
 git --version
 java -version'''
