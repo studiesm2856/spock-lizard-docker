@@ -17,6 +17,12 @@ java -version'''
           }
         }
 
+        stage('pom') {
+          steps {
+            fileExists 'pom.xml'
+          }
+        }
+
       }
     }
 
