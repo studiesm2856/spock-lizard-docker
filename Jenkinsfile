@@ -11,15 +11,11 @@ java -version'''
           }
         }
 
-        stage('Check for POM') {
-          steps {
-            fileExists 'pom.xml'
-          }
-        }
-
         stage('pom') {
           steps {
             fileExists 'pom.xml'
+            sh '''withMaven(maven : \'mymaven\')
+   sh "mvn clean install"'''
           }
         }
 
