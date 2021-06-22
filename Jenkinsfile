@@ -1,21 +1,15 @@
 pipeline {
   agent any
-   stages {
+  stages {
     stage('Log Tool Version') {
       parallel {
-         stage('build') {
-       steps {
-        withMaven(maven : 'mymaven'){
-        sh "mvn clean install"
-    }
-    }
-          
+        stage('Log Tool Version') {
           steps {
             sh '''mvn --version
 git --version
 java -version'''
           }
-         }     
+        }
 
         stage('Check for POM') {
           steps {
